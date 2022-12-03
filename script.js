@@ -13,10 +13,7 @@ console.log("Hello World");
     let losses = 0;
     let victories = 0;
     
-      function PChoiceHTML(computerChoice){
-        document.getElementById("escolhaPC").textContent = `Minha escolha foi: ${computerChoice}`
-
-      }
+     
 
     function incrementVictories() {
     victories++;
@@ -94,10 +91,19 @@ console.log("Hello World");
             }
       }
      
+      function PChoiceHTML(computerChoice){
+        document.getElementById("escolhaPC").textContent = `PC: ${computerChoice}`
+
+      }
+      function playerChoiceHTML(playerChoice){
+        document.getElementById("playerChoice").textContent = `PLAYER: ${playerChoice}`
+      }
+
       function pedra(){
         escolhaPlayer="pedra"
         computerChoice = get_random(escolhaComputador)
         PChoiceHTML(computerChoice)
+        playerChoiceHTML(escolhaPlayer)
         jogarRodada(escolhaPlayer,computerChoice)
         
       }
@@ -106,6 +112,7 @@ console.log("Hello World");
         escolhaPlayer="papel"
         computerChoice = get_random(escolhaComputador)
         PChoiceHTML(computerChoice)
+        playerChoiceHTML(escolhaPlayer)
         jogarRodada(escolhaPlayer,computerChoice)
       }
 
@@ -113,6 +120,7 @@ console.log("Hello World");
         escolhaPlayer="tesoura"
         computerChoice = get_random(escolhaComputador)
         PChoiceHTML(computerChoice)
+        playerChoiceHTML(escolhaPlayer)
         jogarRodada(escolhaPlayer,computerChoice)
       }
      

@@ -16,8 +16,8 @@
         }
         .container{
             display: flex;
-            width: 500px;
-            height: 500px;
+            
+            padding: 10%;
             margin: auto;
             background-color: red;
             align-items: center;
@@ -41,18 +41,27 @@
            flex-direction: row;
             align-items: center;
             justify-content: center;
+            
+
      }
      #victory-counter {
   font-size: 30px; 
 }
-    #escolhaPC{
+    p{
         font-size: 30px; 
+        margin: 10px;
     }
     </style>
 </head>
 <body>
+    <h1>Pedra Papel e Tesoura</h1>
+    <h3>Melhor de 5</h3>
     <div class="container">
-        <p id="escolhaPC">Minha escolha foi: </p>
+       
+        <p id="playerChoice">PLAYER:</p>
+        <p id="escolhaPC">PC: </p>
+           
+       
         <div class="container2">
             <button onclick="pedra()" id="pedra">Pedra</button>
             <button onclick="papel()" id="papel">Papel</button>
