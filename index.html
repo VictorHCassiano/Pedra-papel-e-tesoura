@@ -9,12 +9,59 @@
         body{
             background-color: black;
             color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
+        .container{
+            display: flex;
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            background-color: red;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button {
+        background-color: #4CAF50; /* Verde */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        padding: 10px;
+        margin: 10px;
+        }
+     .container2{
+        display: flex;
+           flex-direction: row;
+            align-items: center;
+            justify-content: center;
+     }
+     #victory-counter {
+  font-size: 30px; 
+}
+    #escolhaPC{
+        font-size: 30px; 
+    }
     </style>
 </head>
 <body>
-    
-
+    <div class="container">
+        <p id="escolhaPC">Minha escolha foi: </p>
+        <div class="container2">
+            <button onclick="pedra()" id="pedra">Pedra</button>
+            <button onclick="papel()" id="papel">Papel</button>
+            <button onclick="tesoura()" id="tesoura">Tesoura</button>
+        </div>
+    </div>
+    <div id="victory-counter">
+        Vitorias: 0 | Derrotas: 0
+      </div>
     <script src="script.js"></script>
 </body>
 </html>

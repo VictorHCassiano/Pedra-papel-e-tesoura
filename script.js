@@ -5,70 +5,141 @@ console.log("Hello World");
         return list[Math.floor((Math.random()*list.length))];
       }
       get_random(escolhaComputador)
-     let contVitoria = 0
-     let contDerrota = 0
     
+    
+      
+
+   
+    let losses = 0;
+    let victories = 0;
+    
+      function PChoiceHTML(computerChoice){
+        document.getElementById("escolhaPC").textContent = `Minha escolha foi: ${computerChoice}`
+
+      }
+
+    function incrementVictories() {
+    victories++;
+    document.getElementById("victory-counter").textContent  = `Vitorias: ${victories} | Derrotas: ${losses}`; 
+    checkBestOfFive(); 
+    }
+
+  
+    function incrementLosses() {
+    losses++; 
+    document.getElementById("victory-counter").textContent  = `Vitorias: ${victories} | Derrotas: ${losses}`; 
+    checkBestOfFive(); 
+    }
+
+   
+    function checkBestOfFive() {
+   
+    if (victories === 5) {
+        losses = 0;
+        victories = 0;
+        alert("Voce ganhou Parabens!!!");
+        
+    }
+    else if (losses === 5){
+        losses = 0;
+        victories = 0;
+        alert("Parece que eu ganhei, mais sorte na proxima");
+        
+    }
+
+    }
+
     function jogarRodada(escolhaPlayer, escolhaComputador) {
             //escolhas de pedra
             if(escolhaPlayer == "pedra" && escolhaComputador == "tesoura"){
-                alert("Parabens!!! Pedra ganha de Tesoura")
-                contVitoria++
+               
+                incrementVictories()
+                checkBestOfFive() 
             } 
             else if(escolhaPlayer == "pedra" && escolhaComputador == "papel"){
-                alert("HAHA uma pena voce perdeu")
-                contDerrota++
+               
+                incrementLosses()
+                checkBestOfFive() 
             }
             else if(escolhaPlayer == "pedra" && escolhaComputador == "pedra"){
-                alert("Empate, sorte a sua")
+               
             }
             //escolhas de papel
             else if(escolhaPlayer == "papel" && escolhaComputador == "pedra"){
-                alert("Parabens!!! Papel ganha de Pedra")
-                contVitoria++
+                
+                incrementVictories()
+                checkBestOfFive() 
             }
             else if(escolhaPlayer == "papel" && escolhaComputador == "tesoura"){
-                alert("HAHA uma pena voce perdeu")
-                contDerrota++
+                
+                incrementLosses()
+                checkBestOfFive() 
             }
             else if(escolhaPlayer == "papel" && escolhaComputador == "papel"){
-                alert("Empate, sorte a sua")
+               
             }
             //escolhas de tesoura
             else if(escolhaPlayer == "tesoura" && escolhaComputador == "papel"){
-                alert("Parabens!!! Papel ganha de Pedra")
-                contVitoria++
+               
+                incrementVictories()
+                checkBestOfFive() 
             }
             else if(escolhaPlayer == "tesoura" && escolhaComputador == "pedra"){
-                alert("HAHA uma pena voce perdeu")
-                contDerrota++
+                
+                incrementLosses()
+                checkBestOfFive() 
             }
             else if(escolhaPlayer == "tesoura" && escolhaComputador == "tesoura"){
-                alert("Empate, sorte a sua")
+              
             }
       }
+     
+      function pedra(){
+        escolhaPlayer="pedra"
+        computerChoice = get_random(escolhaComputador)
+        PChoiceHTML(computerChoice)
+        jogarRodada(escolhaPlayer,computerChoice)
+        
+      }
+
+      function papel(){
+        escolhaPlayer="papel"
+        computerChoice = get_random(escolhaComputador)
+        PChoiceHTML(computerChoice)
+        jogarRodada(escolhaPlayer,computerChoice)
+      }
+
+      function tesoura(){
+        escolhaPlayer="tesoura"
+        computerChoice = get_random(escolhaComputador)
+        PChoiceHTML(computerChoice)
+        jogarRodada(escolhaPlayer,computerChoice)
+      }
+     
       
-      
-        function jogo(){
-            alert("Voce jogará 5 rounds de pedra papel e tesoura comigo ")
-            for (let i = 0; i < 5; i++) {
-                const computerSelection =  get_random(escolhaComputador)
-                alert(`Round ${i+1}`)
-                let escolhaPlayer = window.prompt("Digite Sua escolha, entre pedra papel e tesoura").toLowerCase()
-                alert(`Minha escolha é ${computerSelection}`)
-                jogarRodada(escolhaPlayer,computerSelection)
+
+
+        // function jogo(){
+        //     alert("Voce jogará 5 rounds de pedra papel e tesoura comigo ")
+        //     for (let i = 0; i < 5; i++) {
+        //         const computerSelection =  get_random(escolhaComputador)
+        //         alert(`Round ${i+1}`)
+        //         let escolhaPlayer = window.prompt("Digite Sua escolha, entre pedra papel e tesoura").toLowerCase()
+        //         alert(`Minha escolha é ${computerSelection}`)
+        //         jogarRodada(escolhaPlayer,computerSelection)
 
                 
-             }
-             alert("A partida acaba aqui, vamos ver os resultados")
-             if(contVitoria>contDerrota){
-                alert("Parabens, voce ganhou a partida.. desta vez")
-             }
-           else if(contDerrota>contVitoria){
-             alert("Parece que eu ganhei esta partida, mais sorte na proxima amigo")
-           }
-           else if(contVitoria==contDerrota){
-            alert("Empate, voce teve sorte")
-           }
+        //      }
+        //      alert("A partida acaba aqui, vamos ver os resultados")
+        //      if(contVitoria>contDerrota){
+        //         alert("Parabens, voce ganhou a partida.. desta vez")
+        //      }
+        //    else if(contDerrota>contVitoria){
+        //      alert("Parece que eu ganhei esta partida, mais sorte na proxima amigo")
+        //    }
+        //    else if(contVitoria==contDerrota){
+        //     alert("Empate, voce teve sorte")
+        //    }
 
-        }
-        jogo()
+        // }
+        // jogo()
